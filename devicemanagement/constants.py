@@ -40,12 +40,11 @@ class Device:
 
     def has_exploit(self) -> bool:
         parsed_ver: Version = Version(self.version)
-        # make sure versions past 17.7.1 but before 18.0 aren't supported
-        if (parsed_ver >= Version("17.7.1") and parsed_ver < Version("18.0")):
-            return False
-        if (parsed_ver < Version("18.1")
-            or self.build == "22B5007p" or self.build == "22B5023e"
-            or self.build == "22B5034e" or self.build == "22B5045g"):
+        # Support iOS 16.0+ like misaka26
+        if parsed_ver >= Version("16.0"):
+            # make sure versions past 17.7.1 but before 18.0 aren't supported
+            if (parsed_ver >= Version("17.7.1") and parsed_ver < Version("18.0")):
+                return False
             return True
         return False
 

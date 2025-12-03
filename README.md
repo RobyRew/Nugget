@@ -3,7 +3,7 @@
 # Nugget
 
 [![License](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-5.2.0-green.svg)](version.txt)
+[![Version](https://img.shields.io/badge/version-5.3.0-green.svg)](version.txt)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)]()
 
 A Python-based desktop application for iOS device customization using the PySide6/Qt GUI framework. Nugget enables users to apply various customizations to iOS devices by utilizing USB-based communication through the `pymobiledevice3` library.
@@ -19,6 +19,7 @@ Nugget uses different exploit methods depending on your iOS version:
 
 | iOS Version | Method | MobileGestalt Support | Find My Requirement | Skip Setup | Status |
 |------------|--------|----------------------|-------------------|-----------|--------|
+| **16.0 - 16.7.x** | SparseRestore | ✅ Full | ❌ Must Disable | ✅ Works | Supported |
 | **17.0 - 17.7.0** | SparseRestore | ✅ Full | ❌ Must Disable | ✅ Works | Supported |
 | **17.7.1 - 17.x** | ❌ Patched | ❌ None | N/A | N/A | Not Supported |
 | **18.0 - 18.0.1** | SparseRestore | ✅ Full | ❌ Must Disable | ✅ Works | Supported |
@@ -115,6 +116,13 @@ Available on iOS 17.0 - 18.0.1 and 18.1 betas (Full SparseRestore):
 - **Always On Display** - Enable on any device (iOS 18.0-18.1.1)
 - **AOD Vibrancy** - Customize AOD appearance (iOS 18.0-18.1.1)
 - **Device Spoofing** - Spoof hardware/CPU for Apple Intelligence (iOS 18.1+)
+- **TrollPad (iPad Multitasking)** - Enable full iPad-style multitasking on iPhone (iOS 18.0+)
+- **Landscape Face ID** - Enable Face ID in landscape orientation (iOS 17.0+)
+- **Sleep Apnea Detection** - Enable sleep apnea monitoring feature (iOS 18.0+)
+- **Developer Mode** - Enable developer mode without going through settings (iOS 16.0+)
+- **Security Research Device (SRD) Mode** - Enable SRD capabilities (iOS 26.0+)
+- **PWM Display Pulse Smoothing** - Enable PWM toggle for display flicker reduction (iOS 26.0+, iPhone 17 series)
+- **Allow M/Pro Chip Games** - Allow installation of M-chip exclusive games like RE4 (iOS 26.0+)
 
 ### Eligibility Tweaks
 
@@ -421,6 +429,11 @@ This is expected with BookRestore - Skip Setup does not work on iOS 18.2+. Your 
 - [Mikasa-san](https://github.com/Mikasa-san)
 - [sneakyf1shy (f1shy-dev)](https://github.com/f1shy-dev)
 - [lrdsnow](https://github.com/Lrdsnow)
+
+**Misaka26 Inspiration:**
+- [straight-tamago](https://github.com/straight-tamago) - misaka26 tool inspiration
+- [34306 (Little_34306)](https://x.com/Little_34306) - misaka26 tool inspiration
+- [PoomSmart](https://github.com/PoomSmart) - MGKeys de-obfuscation
 
 **Libraries:**
 - [pymobiledevice3](https://github.com/doronz88/pymobiledevice3) - iOS device communication

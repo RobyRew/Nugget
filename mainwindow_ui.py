@@ -1179,6 +1179,41 @@ class Ui_Nugget(object):
 
         self.verticalLayout_8.addWidget(self.aodVibrancyChk)
 
+        self.trollPadChk = QCheckBox(self.gestaltPageContent)
+        self.trollPadChk.setObjectName(u"trollPadChk")
+
+        self.verticalLayout_8.addWidget(self.trollPadChk)
+
+        self.landscapeFaceIDChk = QCheckBox(self.gestaltPageContent)
+        self.landscapeFaceIDChk.setObjectName(u"landscapeFaceIDChk")
+
+        self.verticalLayout_8.addWidget(self.landscapeFaceIDChk)
+
+        self.sleepApneaChk = QCheckBox(self.gestaltPageContent)
+        self.sleepApneaChk.setObjectName(u"sleepApneaChk")
+
+        self.verticalLayout_8.addWidget(self.sleepApneaChk)
+
+        self.developerModeChk = QCheckBox(self.gestaltPageContent)
+        self.developerModeChk.setObjectName(u"developerModeChk")
+
+        self.verticalLayout_8.addWidget(self.developerModeChk)
+
+        self.srdModeChk = QCheckBox(self.gestaltPageContent)
+        self.srdModeChk.setObjectName(u"srdModeChk")
+
+        self.verticalLayout_8.addWidget(self.srdModeChk)
+
+        self.enablePWMChk = QCheckBox(self.gestaltPageContent)
+        self.enablePWMChk.setObjectName(u"enablePWMChk")
+
+        self.verticalLayout_8.addWidget(self.enablePWMChk)
+
+        self.allowMChipGamesChk = QCheckBox(self.gestaltPageContent)
+        self.allowMChipGamesChk.setObjectName(u"allowMChipGamesChk")
+
+        self.verticalLayout_8.addWidget(self.allowMChipGamesChk)
+
         self.line_22 = QFrame(self.gestaltPageContent)
         self.line_22.setObjectName(u"line_22")
         self.line_22.setStyleSheet(u"QFrame {\n"
@@ -3663,6 +3698,34 @@ class Ui_Nugget(object):
         self.aodVibrancyChk.setToolTip(QCoreApplication.translate("Nugget", u"Enable this if something is wonky when using the above toggle.", None))
 #endif // QT_CONFIG(tooltip)
         self.aodVibrancyChk.setText(QCoreApplication.translate("Nugget", u"Enable AOD Vibrancy", None))
+#if QT_CONFIG(tooltip)
+        self.trollPadChk.setToolTip(QCoreApplication.translate("Nugget", u"Enable full iPad-style multitasking on iPhone. Requires iOS 18.0+.", None))
+#endif // QT_CONFIG(tooltip)
+        self.trollPadChk.setText(QCoreApplication.translate("Nugget", u"Enable TrollPad (iPad Multitasking)", None))
+#if QT_CONFIG(tooltip)
+        self.landscapeFaceIDChk.setToolTip(QCoreApplication.translate("Nugget", u"Enable Face ID in landscape orientation. Requires iOS 17.0+.", None))
+#endif // QT_CONFIG(tooltip)
+        self.landscapeFaceIDChk.setText(QCoreApplication.translate("Nugget", u"Enable Landscape Face ID", None))
+#if QT_CONFIG(tooltip)
+        self.sleepApneaChk.setToolTip(QCoreApplication.translate("Nugget", u"Enable sleep apnea monitoring feature. Requires iOS 18.0+.", None))
+#endif // QT_CONFIG(tooltip)
+        self.sleepApneaChk.setText(QCoreApplication.translate("Nugget", u"Enable Sleep Apnea Detection", None))
+#if QT_CONFIG(tooltip)
+        self.developerModeChk.setToolTip(QCoreApplication.translate("Nugget", u"Enable developer mode without going through settings. Requires iOS 16.0+.", None))
+#endif // QT_CONFIG(tooltip)
+        self.developerModeChk.setText(QCoreApplication.translate("Nugget", u"Enable Developer Mode", None))
+#if QT_CONFIG(tooltip)
+        self.srdModeChk.setToolTip(QCoreApplication.translate("Nugget", u"Enable Security Research Device (SRD) capabilities. Requires iOS 26.0+.", None))
+#endif // QT_CONFIG(tooltip)
+        self.srdModeChk.setText(QCoreApplication.translate("Nugget", u"Enable SRD Mode", None))
+#if QT_CONFIG(tooltip)
+        self.enablePWMChk.setToolTip(QCoreApplication.translate("Nugget", u"Enable PWM toggle for display flicker reduction. Requires iOS 26.0+ (iPhone 17 series).", None))
+#endif // QT_CONFIG(tooltip)
+        self.enablePWMChk.setText(QCoreApplication.translate("Nugget", u"Enable PWM Display Pulse Smoothing", None))
+#if QT_CONFIG(tooltip)
+        self.allowMChipGamesChk.setToolTip(QCoreApplication.translate("Nugget", u"Allow installation of M-chip exclusive games like RE4. Requires iOS 26.0+.", None))
+#endif // QT_CONFIG(tooltip)
+        self.allowMChipGamesChk.setText(QCoreApplication.translate("Nugget", u"Allow M/Pro Chip Games on AppStore", None))
         self.label_10.setText(QCoreApplication.translate("Nugget", u"Custom Gestalt Keys", None))
         self.addGestaltKeyBtn.setText(QCoreApplication.translate("Nugget", u"  Add Key", None))
         self.label_12.setText(QCoreApplication.translate("Nugget", u"Warning: Using this feature incorrectly can lead to bootloops and data loss. Only use if you know\n"

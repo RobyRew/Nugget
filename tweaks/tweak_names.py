@@ -28,6 +28,15 @@ class TweakID(Enum):
     AOD = auto()
     AODVibrancy = auto()
     RdarFix = auto()
+    
+    # New tweaks from misaka26
+    TrollPad = auto()
+    SRDMode = auto()
+    EnablePWM = auto()
+    AllowMChipGames = auto()
+    LandscapeFaceID = auto()
+    SleepApnea = auto()
+    DeveloperMode = auto()
 
     # eligibility
     EUEnabler = auto()

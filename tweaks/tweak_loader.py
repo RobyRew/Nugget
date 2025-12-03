@@ -25,7 +25,18 @@ def get_mobilegestalt_tweaks() -> dict:
         TweakID.InternalInstall: MobileGestaltTweak("EqrsVvjcYDdxHBiQmGhAWw"),
         TweakID.AOD: MobileGestaltMultiTweak(
                                 {"2OOJf1VhaM7NxfRok3HbWQ": 1, "j8/Omm6s1lsmTDFsXjsBfA": 1}),
-        TweakID.AODVibrancy: MobileGestaltTweak("ykpu7qyhqFweVMKtxNylWA")
+        TweakID.AODVibrancy: MobileGestaltTweak("ykpu7qyhqFweVMKtxNylWA"),
+        TweakID.TrollPad: MobileGestaltMultiTweak({
+            "mG0AnH/Vy1veoqoLRAIgTA": 1,
+            "UCG5MkVahJxG1YULbbd5Bg": 1,
+            "ZYqko/XM5zD3XBfN5RmaXA": 1,
+            "nVh/gwNpy7Jv1NOk00CMrw": 1,
+            "uKc7FPnEO++lVhHWHFlGbQ": 1,
+            "qeaj75wk3HF4DwQ8qbIi7g": 1,
+        }),
+        TweakID.LandscapeFaceID: MobileGestaltTweak("wvJfR/aw0KpFbbNdh0NMRA", value=1),
+        TweakID.SleepApnea: MobileGestaltTweak("r+lMwqS0GpCLSwn0F8a+Rw", value=1),
+        TweakID.DeveloperMode: MobileGestaltTweak("Um5xFNNz3bHpN/NkUvcjsw", value=1)
     }
 
 def load_rdar_fix(dev: Device):
@@ -181,6 +192,19 @@ def load_eligibility(dev: Device):
         additional_tweaks[TweakID.SpoofHardware].value[0] = dev.hardware
         additional_tweaks[TweakID.SpoofCPU].value[0] = dev.cpu
     # add to tweaks
+    tweaks.update(additional_tweaks)
+
+def load_ios26_tweaks():
+    if TweakID.SRDMode in tweaks:
+        return
+    additional_tweaks = {
+        TweakID.SRDMode: MobileGestaltTweak("XYlJKKkj2hztRP1NWWnhlw", value=1),
+        TweakID.EnablePWM: MobileGestaltTweak("RyijG2FjbSmpWH/ypCSSdQ", value=1),
+        TweakID.AllowMChipGames: MobileGestaltMultiTweak({
+            "4NV26LqJxbo3KnqPpG/oig": 1,
+            "8+CJ7OBQcLPbDfI8a0+wVg": 1,
+        }),
+    }
     tweaks.update(additional_tweaks)
 
 def load_featureflags():
@@ -392,15 +416,22 @@ def load_daemons():
     }
     tweaks.update(additional_tweaks)
 
-def load_all_tweaks(version: str):
+def load_all_tweaks(version: str, dev: Device = None):
     parsed_ver = Version(version)
-    if parsed_ver <= Version("18.2"):
-        # load mobilegestalt + eligibility tweaks
-        load_mobilegestalt()
-        load_eligibility()
+    
+    # Load mobilegestalt + eligibility for iOS 16+
+    if parsed_ver >= Version("16.0"):
+        load_mobilegestalt(dev)
+        load_eligibility(dev)
+    
+    # Load iOS 26+ specific tweaks
+    if parsed_ver >= Version("26.0"):
+        load_ios26_tweaks()
+    
+    # Feature flags only work on iOS < 18.1
     if parsed_ver < Version("18.1"):
-        # load feature flags
         load_featureflags()
+    
     load_springboard()
     load_internal()
     load_daemons()
