@@ -419,14 +419,14 @@ def load_daemons():
 def load_all_tweaks(version: str, dev: Device = None):
     parsed_ver = Version(version)
     
+    # Load mobilegestalt + eligibility for iOS 16+ (excluding 26.2 beta 2+)
+    if parsed_ver >= Version("16.0"):
+        load_mobilegestalt(dev)
+        load_eligibility(dev)
+    
     # Load iOS 26+ specific tweaks
     if parsed_ver >= Version("26.0"):
         load_ios26_tweaks()
-    
-    # Load mobilegestalt + eligibility for iOS 16+
-    if parsed_ver >= Version("16.0") and parsed_ver <= Version("18.2"):
-        load_mobilegestalt(dev)
-        load_eligibility(dev)
     
     # Feature flags only work on iOS < 18.1
     if parsed_ver < Version("18.1"):
