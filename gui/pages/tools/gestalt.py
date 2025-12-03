@@ -38,6 +38,14 @@ class GestaltPage(Page):
         self.ui.aodChk.clicked.connect(self.on_aodChk_clicked)
         self.ui.aodVibrancyChk.clicked.connect(self.on_aodVibrancyChk_clicked)
 
+        self.ui.trollPadChk.clicked.connect(self.on_trollPadChk_clicked)
+        self.ui.landscapeFaceIDChk.clicked.connect(self.on_landscapeFaceIDChk_clicked)
+        self.ui.sleepApneaChk.clicked.connect(self.on_sleepApneaChk_clicked)
+        self.ui.developerModeChk.clicked.connect(self.on_developerModeChk_clicked)
+        self.ui.srdModeChk.clicked.connect(self.on_srdModeChk_clicked)
+        self.ui.enablePWMChk.clicked.connect(self.on_enablePWMChk_clicked)
+        self.ui.allowMChipGamesChk.clicked.connect(self.on_allowMChipGamesChk_clicked)
+
         self.ui.addGestaltKeyBtn.clicked.connect(self.on_addGestaltKeyBtn_clicked)
 
         # load tweaks
@@ -133,6 +141,21 @@ class GestaltPage(Page):
         tweaks[TweakID.AOD].set_enabled(checked)
     def on_aodVibrancyChk_clicked(self, checked: bool):
         tweaks[TweakID.AODVibrancy].set_enabled(checked)
+
+    def on_trollPadChk_clicked(self, checked: bool):
+        tweaks[TweakID.TrollPad].set_enabled(checked)
+    def on_landscapeFaceIDChk_clicked(self, checked: bool):
+        tweaks[TweakID.LandscapeFaceID].set_enabled(checked)
+    def on_sleepApneaChk_clicked(self, checked: bool):
+        tweaks[TweakID.SleepApnea].set_enabled(checked)
+    def on_developerModeChk_clicked(self, checked: bool):
+        tweaks[TweakID.DeveloperMode].set_enabled(checked)
+    def on_srdModeChk_clicked(self, checked: bool):
+        tweaks[TweakID.SRDMode].set_enabled(checked)
+    def on_enablePWMChk_clicked(self, checked: bool):
+        tweaks[TweakID.EnablePWM].set_enabled(checked)
+    def on_allowMChipGamesChk_clicked(self, checked: bool):
+        tweaks[TweakID.AllowMChipGames].set_enabled(checked)
 
     def update_custom_gestalt_value_type(self, id, idx, valueField: QtWidgets.QLineEdit):
         new_str = CustomGestaltTweaks.set_tweak_value_type(id, idx)
