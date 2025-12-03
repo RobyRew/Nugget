@@ -419,7 +419,7 @@ def load_daemons():
 def load_all_tweaks(version: str, dev: Device = None):
     parsed_ver = Version(version)
     
-    # Load mobilegestalt + eligibility for iOS 16+ (excluding 26.2 beta 2+)
+    # Load mobilegestalt + eligibility for iOS 16+
     if parsed_ver >= Version("16.0"):
         load_mobilegestalt(dev)
         load_eligibility(dev)
